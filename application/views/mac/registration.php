@@ -51,9 +51,56 @@ Author URL: http://github.com/as3eem
                                         <div class="form-group valid-form">
                                             <input type="text" class="form-control" id="inputName" name="name" placeholder="Full Name" required="">
                                         </div>
+                                        <div class="form-group">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="gender" required="">
+                                                    I'm a Student
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="gender" required="">
+                                                    I'm a Staff Member
+                                                </label>
+                                            </div>
+                                        </div>
                                         <div class="form-group valid-form">
                                             <input type="text" class="form-control" id="roll" name="roll" placeholder="Roll Number | Staff ID" required="">
                                         </div>
+                                        <div class="form-group">
+                                            <select class="form-control" id="course" name="course" required>
+                                                <option value="" selected disabled style="color: ">----Select Course----</option>
+                                                <option value="btech" style="color: #0f0f0f">Bachelor in Technology (B.Tech)</option>
+                                                <option value="mca" style="color: #0f0f0f">Masters in Computer Application (MCA)</option>
+                                                <option value="mtech" style="color: #0f0f0f">Masters in Technology (M.Tech)</option>
+                                                <option value="staff" style="color: #0f0f0f">Staff Member</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" name="branch" required>
+                                                <option value="" selected disabled style="color: #0f0f0f">----Select Branch----</option>
+                                                <option value="CSE" style="color: #0f0f0f">CSE - Computer Science and Engineering</option>
+                                                <option value="IT" style="color: #0f0f0f">IT - Information Technology</option>
+                                                <option value="EE" style="color: #0f0f0f">EE - Electrical Engineering</option>
+                                                <option value="CE" style="color: #0f0f0f">CE - Civil Engineering</option>
+                                                <option value="ME" style="color: #0f0f0f">ME - Mechanical Engineering</option>
+                                                <option value="EC" style="color: #0f0f0f">EX - Electronics Engineering</option>
+                                                <option value="MCA" style="color: #0f0f0f">MCA</option>
+                                                <option value="staff" style="color: #0f0f0f">Staff Member</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" name="year" required>
+                                                <option value="" selected disabled style="color: #0f0f0f">----Select Year----</option>
+                                                <option value="1" style="color: #0f0f0f">First (1)</option>
+                                                <option value="2" style="color: #0f0f0f">Second (2)</option>
+                                                <option value="3" style="color: #0f0f0f">Third (3)</option>
+                                                <option value="4" style="color: #0f0f0f">Fourth (4)</option>
+                                                <option value="staff" style="color: #0f0f0f">Staff Member</option>
+                                            </select>
+                                        </div>
+
                                         <div class="form-group has-feedback">
                                             <input type="email" class="form-control" name="Email" placeholder="Email" data-error="That email address is invalid" required="">
                                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -71,20 +118,7 @@ Author URL: http://github.com/as3eem
                                             <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" name="Confirm password" placeholder="Confirm password" required="">
                                             <div class="help-block with-errors"></div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="gender" required="">
-                                                    Female
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="gender" required="">
-                                                    Male
-                                                </label>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
