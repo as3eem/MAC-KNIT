@@ -47,20 +47,20 @@ Author URL: http://github.com/as3eem
                                         <h3>Register yourself here:</h3>
                                 </div>
                                 <div class="form-body form-body-info">
-                                    <form data-toggle="validator" action="<?=base_url('otpVerify')?>" method="post">
+                                    <form data-toggle="validator" action="<?=base_url('Welcome/Verify')?>" method="post">
                                         <div class="form-group valid-form">
                                             <input type="text" class="form-control" id="inputName" name="name" placeholder="Full Name" required="">
                                         </div>
                                         <div class="form-group">
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="isFaculty" required="">
+                                                    <input type="radio" value="student" name="isFaculty" required="">
                                                     I'm a Student
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="isFaculty" required="">
+                                                    <input type="radio" value="staff" name="isFaculty" required="">
                                                     I'm a Staff Member
                                                 </label>
                                             </div>
