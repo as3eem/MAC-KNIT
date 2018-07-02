@@ -16,7 +16,12 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-        $this->load->view('mac/navbar');
-        $this->load->view('mac/registration');
+//        $this->load->view('mac/navbar');
+
+        $this->load->view('adminTemp/userNavbar.php');
+        $this->load->view('adminTemp/infoCards.php');
+
+//        $this->load->view('adminTemp/panel.php');
+//        $this->load->view('mac/registration');
     }
 }

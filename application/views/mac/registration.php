@@ -122,7 +122,7 @@ Author URL: http://github.com/as3eem
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" id="terms" data-error="Before you wreck yourself" required="">
+                                                    <input type="checkbox" id="terms" data-error="Tick here before you proceed. " required="">
                                                     I have read and accept terms of use.
                                                 </label>
                                                 <div class="help-block with-errors"></div>
