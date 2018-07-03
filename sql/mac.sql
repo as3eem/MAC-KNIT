@@ -13,8 +13,6 @@ CREATE TABLE IF NOT EXISTS `user` (
    	`Contact` varchar(125),
    	`Course` varchar(125),
    	`post_image` varchar(125),
-   	`otp` varchar(125),
-   	`otpToken` varchar(125),
    	`isFaculty` varchar(125),
    	`password` varchar(125),
   PRIMARY KEY (id)

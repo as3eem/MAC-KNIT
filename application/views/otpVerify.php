@@ -23,10 +23,10 @@
             <img src="<?=base_url('Static/Images/otp.png')?>" class="img-responsive" style="width:200px; height:200px;margin:0 auto;"><br>
 
             <h1 class="text-center">Verify your mobile number</h1><br>
-            <p class="lead" style="align:center"></p><p> Thanks for giving your details. An OTP has been sent to Mobile Number <b><?=$_SESSION['phone']?></b>. Please enter the 4 digit OTP below for Successful Registration</p>  <p></p>
+            <p class="lead" style="align:center"></p><p> Thanks for giving your details. An OTP has been sent to Mobile Number <b><?=$_SESSION['contact']?></b>. Please enter the 4 digit OTP below for Successful Registration</p>  <p></p>
             <br>
 
-            <form method="post" id="veryfyotp" action="Welcome/otpCheck">
+            <form method="post" id="veryfyotp" action="<?=base_url('Welcome/otpCheck')?>">
                 <div class="row">
                     <div class="form-group col-sm-8">
                         <span style="color:red;"></span>

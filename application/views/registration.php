@@ -140,33 +140,25 @@ Author URL: http://github.com/as3eem
                             <div class="validation-grids validation-grids-right login-form">
                                 <div class="widget-shadow login-form-shadow" data-example-id="basic-forms">
                                     <div class="input-info">
-                                        <h3>Login form :</h3>
+                                        <h3>Login here :</h3>
                                     </div>
                                     <div class="form-body form-body-info">
-                                        <form data-toggle="validator" action="#" method="post">
+                                        <form data-toggle="validator" action="<?=base_url('Home/login')?>" method="post">
                                             <div class="form-group has-feedback">
-                                                <input type="email" class="form-control" name="Eamil" placeholder="Enter Your Email" data-error="Bruh, that email address is invalid" required="">
+                                                <input type="text" class="form-control" name="roll" placeholder="Enter Your Roll Number" required="">
                                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" data-toggle="validator" data-minlength="6" class="form-control" id="inputPassword1" name="Password" placeholder="Password" required="">
+                                                <input type="password" data-toggle="validator" data-minlength="6" class="form-control" id="inputPassword1" name="pwd" placeholder="Password" required="">
                                             </div>
                                             <div class="bottom">
-                                                <div class="form-group">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" id="terms1" data-error="Before you wreck yourself" required="">
-                                                            Remember me
-                                                        </label>
-                                                        <div class="help-block with-errors"></div>
-                                                    </div>
-                                                </div>
                                                 <div class="form-group">
                                                     <button type="submit" class="btn btn-primary disabled">Login</button>
                                                 </div>
                                                 <div class="clearfix"> </div>
                                             </div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
