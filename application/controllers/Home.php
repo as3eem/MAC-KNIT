@@ -14,23 +14,20 @@ class Home extends CI_Controller
 
     public function index()
     {
-        if ($_SESSION['logged_in']){
-            $this->_home();
-        }
-        else{
-            $this->load->view('registration');
-        }
-
+        if (isset($_SESSION['logged_in']))
+        {
+            if ($_SESSION['logged_in'])
+                $this->_home();
+        } else redirect(base_url());
     }
 
     public function login()
     {
-        print_r($_SESSION);die;
-
-        if ($_SESSION['logged_in']){
-            $this->_home();
-        }
-        else {
+        if (isset($_SESSION['logged_in']))
+        {
+            if ($_SESSION['logged_in'])
+                $this->_home();
+        } else {
             $roll = $this->input->post('roll');
             $pwd = $this->input->post('pwd');
             $this->_checkLogin($roll, $pwd);
@@ -42,7 +39,6 @@ class Home extends CI_Controller
         $user=$user->result();
         if ($user[0]->id > 0){
             $sessiondata = array(
-                //get user id here
                 'id'=>$user[0]->id,
                 'name' => $user[0]->Name,
                 'rollno' => $user[0]->RollNo,
@@ -68,6 +64,8 @@ class Home extends CI_Controller
     {
             $this->load->view('adminTemp/userNavbar');
             $this->load->view('adminTemp/panel');
+            $this->load->view('adminTemp/footer');
+
     }
     function _get_user($usr, $pwd)
     {

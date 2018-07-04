@@ -11,11 +11,11 @@ class Welcome extends CI_Controller
 
     public function index()
     {
-        if ($_SESSION['logged_in'])
+        if (isset($_SESSION['logged_in']))
         {
-            redirect('Dashboard/index');
+            if ($_SESSION['logged_in'])
+                redirect('Dashboard/user');
         }
-
         $this->load->view('registration');
     }
 

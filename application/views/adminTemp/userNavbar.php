@@ -7,15 +7,6 @@
  */
 ?>
 
-<?php
-/**
- * Created by PhpStorm.
- * User: as3eem
- * Date: 30/6/18
- * Time: 6:58 PM
- */
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +61,7 @@
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-warning"></i>
-                        <span class="label label-warning">10</span>
+                        <span class="label label-warning">!</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">You have new notifications</li>
@@ -112,27 +103,24 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
-                        <span>Jane Doe <i class="caret"></i></span>
+                        <span><?=$_SESSION['name']?> <i class="caret"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
                             <img src="<?=base_url()?>Static/Admin/img/avatar3.png" class="img-circle" alt="User Image" />
                             <p>
-                                Jane Doe - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <?=$_SESSION['name']?>
+                                <small><?=$_SESSION['brnch']." - ".$_SESSION['year']?></small>
                             </p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
+                            <div class="col-xs-6 text-center">
+                                <a href="#">Password</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
+                                <a href="#">Blah Blah</a>
                             </div>
                         </li>
                         <!-- Menu Footer-->
@@ -154,12 +142,6 @@
 
 
 <!--Side Navbar-->
-<!--Side Navbar-->
-<!--Side Navbar-->
-<!--Side Navbar-->
-<!--Side Navbar-->
-<!--Side Navbar-->
-<!--Side Navbar-->
 
 <div class="wrapper row-offcanvas row-offcanvas-left">
     <!-- Left side column. contains the logo and sidebar -->
@@ -169,135 +151,34 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?=base_url()?>Static/Admin/img/avatar3.png" class="img-circle" alt="User Image" />
+                    <img src="<?=base_url()?>Static/Admin/img/me.jpg" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
-                    <p>Hello, Jane</p>
+                    <p>Hello, <?=explode(' ',$_SESSION['name'])[0]?></p>
 
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    <span href="#"><i class="fa fa-circle text-success"></i> Online</span>
                 </div>
             </div>
-            <!-- search form -->
-            <form action="#" method="get" class="sidebar-form">
 
-            </form>
-            <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="active">
-                    <a href="<?=base_url('Dashboard/index').$_SESSION['rollno']?>">
+                    <a href="<?=base_url('Dashboard/user')."/".$_SESSION['rollno']?>">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
-<!--                <li>-->
-<!--                    <a href="pages/widgets.html">-->
-<!--                        <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="treeview">-->
-<!--                    <a href="#">-->
-<!--                        <i class="fa fa-bar-chart-o"></i>-->
-<!--                        <span>Charts</span>-->
-<!--                        <i class="fa fa-angle-left pull-right"></i>-->
-<!--                    </a>-->
-<!--                    <ul class="treeview-menu">-->
-<!--                        <li><a href="pages/charts/morris.html"><i class="fa fa-angle-double-right"></i> Morris</a></li>-->
-<!--                        <li><a href="pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>-->
-<!--                        <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-<!--                <li class="treeview">-->
-<!--                    <a href="#">-->
-<!--                        <i class="fa fa-laptop"></i>-->
-<!--                        <span>UI Elements</span>-->
-<!--                        <i class="fa fa-angle-left pull-right"></i>-->
-<!--                    </a>-->
-<!--                    <ul class="treeview-menu">-->
-<!--                        <li><a href="pages/UI/general.html"><i class="fa fa-angle-double-right"></i> General</a></li>-->
-<!--                        <li><a href="pages/UI/icons.html"><i class="fa fa-angle-double-right"></i> Icons</a></li>-->
-<!--                        <li><a href="pages/UI/buttons.html"><i class="fa fa-angle-double-right"></i> Buttons</a></li>-->
-<!--                        <li><a href="pages/UI/sliders.html"><i class="fa fa-angle-double-right"></i> Sliders</a></li>-->
-<!--                        <li><a href="pages/UI/timeline.html"><i class="fa fa-angle-double-right"></i> Timeline</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-<!--                <li class="treeview">-->
-<!--                    <a href="#">-->
-<!--                        <i class="fa fa-edit"></i> <span>Forms</span>-->
-<!--                        <i class="fa fa-angle-left pull-right"></i>-->
-<!--                    </a>-->
-<!--                    <ul class="treeview-menu">-->
-<!--                        <li><a href="pages/forms/general.html"><i class="fa fa-angle-double-right"></i> General Elements</a></li>-->
-<!--                        <li><a href="pages/forms/advanced.html"><i class="fa fa-angle-double-right"></i> Advanced Elements</a></li>-->
-<!--                        <li><a href="pages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-<!--                <li class="treeview">-->
-<!--                    <a href="#">-->
-<!--                        <i class="fa fa-table"></i> <span>Tables</span>-->
-<!--                        <i class="fa fa-angle-left pull-right"></i>-->
-<!--                    </a>-->
-<!--                    <ul class="treeview-menu">-->
-<!--                        <li><a href="pages/tables/simple.html"><i class="fa fa-angle-double-right"></i> Simple tables</a></li>-->
-<!--                        <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a href="pages/calendar.html">-->
-<!--                        <i class="fa fa-calendar"></i> <span>Calendar</span>-->
-<!--                        <small class="badge pull-right bg-red">3</small>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a href="pages/mailbox.html">-->
-<!--                        <i class="fa fa-envelope"></i> <span>Mailbox</span>-->
-<!--                        <small class="badge pull-right bg-yellow">12</small>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="treeview">-->
-<!--                    <a href="#">-->
-<!--                        <i class="fa fa-folder"></i> <span>Examples</span>-->
-<!--                        <i class="fa fa-angle-left pull-right"></i>-->
-<!--                    </a>-->
-<!--                    <ul class="treeview-menu">-->
-<!--                        <li><a href="pages/examples/invoice.html"><i class="fa fa-angle-double-right"></i> Invoice</a></li>-->
-<!--                        <li><a href="pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Login</a></li>-->
-<!--                        <li><a href="pages/examples/register.html"><i class="fa fa-angle-double-right"></i> Register</a></li>-->
-<!--                        <li><a href="pages/examples/lockscreen.html"><i class="fa fa-angle-double-right"></i> Lockscreen</a></li>-->
-<!--                        <li><a href="pages/examples/404.html"><i class="fa fa-angle-double-right"></i> 404 Error</a></li>-->
-<!--                        <li><a href="pages/examples/500.html"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>-->
-<!--                        <li><a href="pages/examples/blank.html"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>Apply</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="<?=base_url('Dashboard/MAC')?>"><i class="fa fa-angle-double-right"></i>MAC</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
     </aside>
-
-
-
-    <!--Side Navbar-->
-    <!--Side Navbar-->
-    <!--Side Navbar-->
-    <!--Side Navbar-->
-    <!--Side Navbar-->
-    <!--Side Navbar-->
-    <!--Side Navbar-->
 <!--    Side navbar Ends-->
-<!--    Side navbar Ends-->
-<!--    Side navbar Ends-->
-<!--    Side navbar Ends-->
-
-    <!-- Right side column. Contains the navbar and content of the page -->
-    <aside class="right-side">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Dashboard
-                <small>Home</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><span href="#"><i class="fa fa-dashboard"></i> Home</span></li>
-                <li class="active">Dashboard</li>
-            </ol>
-        </section>
 
