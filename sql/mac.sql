@@ -17,3 +17,19 @@ CREATE TABLE IF NOT EXISTS `user` (
    	`password` varchar(125),
   PRIMARY KEY (id)
 ) ;
+
+DROP TABLE IF EXISTS `macRequest`;
+CREATE TABLE IF NOT EXISTS `macRequest` (
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`RollNo` varchar(100),
+	`Name` varchar(100),
+	`Course` varchar(125),
+	`Branch` varchar(125),
+	`Year` varchar(1000),
+	`Mac` varchar(100),
+	`Email` varchar(100),
+	`Contact` varchar(125),
+	`post_image` varchar(125),
+	`isFaculty` varchar(125),
+	PRIMARY KEY (id)
+) ;

@@ -27,7 +27,7 @@
 
                     <div class="box-body">
                         <div class="callout callout-warning">
-                            <h4>Step 2:</h4>
+                            <h4>Step 1:</h4>
                             <p>
                                 Report to CSE office with following documents within 3 days-
                             <ul>
@@ -37,22 +37,23 @@
                             </p>
                         </div>
                         <div class="callout callout-info">
-                            <h4>Step 1:</h4>
+                            <h4>Step 2:</h4>
                             <p>Fill out this form with valid details to make MAC approval request.</p>
                         </div>
                     </div>
 
                     <!-- form start -->
-                    <form role="form" action="<?=base_url('Dashboard/newMAC')?>" method="post">
+                    <!--<form role="form" action=base_url('Dashboard/newMAC') method="post">-->
+                    <?php echo form_open_multipart('Dashboard/newMAC');?>
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="mac">Enter MAC Address</label>
-                                <input type="type" name="mac" class="form-control" required id="exampleInputEmail1" placeholder="for example: ec8eb5539f36">
+                                <input type="text" name="mac" class="form-control" required id="exampleInputEmail1" placeholder="for example: ec8eb5539f36">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputFile">Upload Valid KNIT ID Card </label>
-                                <input type="file" id="exampleInputFile" required name="idcard">
+                                <input type="file" id="exampleInputFile" required name="user_file">
                                 <p class="help-block">Upload current KNIT Identity Card that will be verified physically later with this account's identity. Valid formats are jpeg, jpg, png.</p>
                             </div>
                         </div><!-- /.box-body -->

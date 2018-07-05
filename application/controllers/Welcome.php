@@ -21,16 +21,16 @@ class Welcome extends CI_Controller
 
     public function verify()
     {
-//        todo: Check user existence
+        $data['roll'] = $this->input->post('roll', TRUE);
+        $data['phone'] = $this->input->post('phone', TRUE);
+        $data['email'] = $this->input->post('email', TRUE);
+        $this->_checkDuplicacy($data);
 
         $data['name'] = $this->input->post('name', TRUE);
         $data['isFaculty'] = $this->input->post('isFaculty', TRUE);
-        $data['roll'] = $this->input->post('roll', TRUE);
         $data['course'] = $this->input->post('course', TRUE);
         $data['branch'] = $this->input->post('branch', TRUE);
         $data['year'] = $this->input->post('year', TRUE);
-        $data['email'] = $this->input->post('email', TRUE);
-        $data['phone'] = $this->input->post('phone', TRUE);
         $data['password'] = $this->input->post('password', TRUE);
         $data['submit'] = $this->input->post('submit', TRUE);
 
@@ -48,7 +48,36 @@ class Welcome extends CI_Controller
         );
         $this->session->set_userdata($sessiondata);
         $this->_sendOTP($_SESSION['contact']);
+    }
 
+    public function _checkDuplicacy($data){
+        $this->load->model('Macuser');
+        $query = "select * from user where RollNo = '".$data['roll']."'";
+        $query = $this->Macuser->_custom_query($query);
+        $q=$query->result();
+        $emailCheck = "select * from user where Email = '".$data['email']."'";
+        $emailCheck = $this->Macuser->_custom_query($emailCheck);
+        $r=$emailCheck->result();
+        $phoneCheck = "select * from user where Contact = '".$data['phone']."'";
+        $phoneCheck = $this->Macuser->_custom_query($phoneCheck);
+        $s=$phoneCheck->result();
+        if ($q[0]->id >0){
+            die("The Roll Number " . $q[0]->RollNo . " is already registered.");
+        }
+        if ($r[0]->id >0){
+            die("The Email Address " . $r[0]->Email . " is already registered. Try something new.");
+        }
+        if ($s[0]->id >0){
+            die("The Phone Number " . $s[0]->Contact . " is already registered. Try something new.");
+        }
+    }
+
+    function _get_user($usr, $pwd)
+    {
+        $this->load->model('Macuser');
+        $query = "select * from user where RollNo = '" . $usr . "' and password = '" . $pwd . "'";
+        $query = $this->Macuser->_custom_query($query);
+        return $query;
     }
 
     public function otpCheck()
@@ -65,9 +94,15 @@ class Welcome extends CI_Controller
 
     public function _sendOTP($phone)
     {
-//	        todo: attach OTP API
         $otp = rand(1000, 9999);
         $this->session->set_userdata('otp', $otp);
+        $this->load->model('OTP');
+        $this->OTP->sendOTP($_SESSION['otp'],$phone);
+
+//      todo: remove this otp from console
+
+        echo "<script>console.log($otp)</script>";
+
         $this->load->view('otpVerify');
     }
 

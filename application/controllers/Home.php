@@ -26,6 +26,7 @@ class Home extends CI_Controller
         if (isset($_SESSION['logged_in']))
         {
             if ($_SESSION['logged_in'])
+
                 $this->_home();
         } else {
             $roll = $this->input->post('roll');
@@ -62,11 +63,12 @@ class Home extends CI_Controller
 
     public function _home()
     {
-            $this->load->view('adminTemp/userNavbar');
-            $this->load->view('adminTemp/panel');
-            $this->load->view('adminTemp/footer');
+            $this->load->view('userTemp/userNavbar');
+            $this->load->view('userTemp/panel');
+            $this->load->view('userTemp/footer');
 
     }
+
     function _get_user($usr, $pwd)
     {
         $this->load->model('Macuser');

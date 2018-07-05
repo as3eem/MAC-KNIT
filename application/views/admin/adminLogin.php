@@ -48,7 +48,7 @@
                 <div class="lockscreen-credentials">
                     <form action="<?=base_url('Admin/login')?>" method="post">
                         <div class="input-group">
-                            <input type="password" class="form-control" placeholder="password" />
+                            <input type="password" class="form-control" name="pwd" placeholder="password" />
                             <div class="input-group-btn">
                                 <button class="btn btn-flat" name="sub" value="subMIT" type="submit"><i class="fa fa-arrow-right text-muted"></i></button>
                             </div>
