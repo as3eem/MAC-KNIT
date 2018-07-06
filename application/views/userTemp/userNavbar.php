@@ -69,29 +69,8 @@
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
                                 <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users warning"></i> 5 new members joined
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-cart success"></i> 25 sales made
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-person danger"></i> You changed your username
+                                    <a href="<?=base_url('Dashboard/MAC')?>">
+                                        <i class="ion ion-ios7-people info"></i> Register for New MAC Registration
                                     </a>
                                 </li>
                             </ul>
@@ -115,14 +94,14 @@
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="col-xs-6 text-center">
-                                <a href="#">Password</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Blah Blah</a>
-                            </div>
-                        </li>
+<!--                        <li class="user-body">-->
+<!--                            <div class="col-xs-6 text-center">-->
+<!--                                <a href="#">Password</a>-->
+<!--                            </div>-->
+<!--                            <div class="col-xs-4 text-center">-->
+<!--                                <a href="#">Blah Blah</a>-->
+<!--                            </div>-->
+<!--                        </li>-->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">

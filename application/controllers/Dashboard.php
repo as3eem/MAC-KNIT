@@ -67,6 +67,10 @@ class Dashboard extends CI_Controller
                     $post_image = $_FILES['user_file']['name'];
                     $studentBio=$this->_fetch_data_for_mac_request($post_image,$mac);
                     $this->_insert($studentBio);
+
+//                  todo: send a mail in html template
+
+                    $this->user();
                 } else {
                     $error = array('error' => $this->upload->display_errors());
                     echo '<pre>';

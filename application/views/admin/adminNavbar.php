@@ -161,10 +161,19 @@
                     <span href="#"><i class="fa fa-circle text-success"></i> Online</span>
                 </div>
             </div>
-
+            <!-- search form -->
+            <form action="<?=base_url('Admin/Search')?>" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="roll" class="form-control" placeholder="Enter Roll Number here..."/>
+                    <span class="input-group-btn">
+                                <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                </div>
+            </form>
+            <!-- /.search form -->
             <ul class="sidebar-menu">
                 <li class="active">
-                    <a href="<?=base_url('Admin/dashboard')?>">
+                    <a href="<?=base_url('Admin/')?>">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>

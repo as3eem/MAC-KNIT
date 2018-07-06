@@ -13,9 +13,11 @@ CREATE TABLE IF NOT EXISTS `user` (
    	`Contact` varchar(125),
    	`Course` varchar(125),
    	`post_image` varchar(125),
+   	`id_image` varchar(125),
    	`isFaculty` varchar(125),
-   	`password` varchar(125),
-  PRIMARY KEY (id)
+	`password` varchar(125),
+	`date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (id)
 ) ;
 
 DROP TABLE IF EXISTS `macRequest`;
@@ -31,5 +33,6 @@ CREATE TABLE IF NOT EXISTS `macRequest` (
 	`Contact` varchar(125),
 	`post_image` varchar(125),
 	`isFaculty` varchar(125),
+	`date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id)
 ) ;
