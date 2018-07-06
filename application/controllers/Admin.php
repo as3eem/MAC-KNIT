@@ -17,8 +17,12 @@ class Admin extends CI_Controller
     public function index(){
         if($this->_sessionCheck())
         {
+            $this->load->model('MAC_Request');
+            $this->load->model('Macuser');
+            $data['request']=$this->MAC_Request->count_all();
+            $data['users']=$this->Macuser->count_all();
             $this->load->view('admin/adminNavbar');
-            $this->load->view('admin/panel');
+            $this->load->view('admin/panel',$data);
             $this->load->view('admin/footer');
         }
         else $this->load->view('admin/adminLogin');
@@ -56,12 +60,14 @@ class Admin extends CI_Controller
     public function macRequests(){
         if ($this->_sessionCheck()){
 
+            $this->_delete_older_request();
             $data=$this->_fetch_requests();
             $data=$data->result();
             $student['k']=$data;
             $this->load->view('admin/adminNavbar');
             $this->load->view('admin/MACrequest',$student);
             $this->load->view('admin/footer');
+            echo "<script>alert('Requests older than 3 days have been deleted.')</script>";
         }
         else redirect('Admin/');
     }
@@ -94,7 +100,10 @@ class Admin extends CI_Controller
 
 
     public function _delete_older_request(){
-//        todo: Add timestamp to database schema and code for it here
+        $this->load->model('MAC_Request');
+        $query = "DELETE FROM macRequest WHERE date < (NOW() - INTERVAL 3 DAY)";
+        $query = $this->MAC_Request->_custom_query($query);
+        return $query;
     }
 
 

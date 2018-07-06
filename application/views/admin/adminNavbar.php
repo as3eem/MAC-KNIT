@@ -70,32 +70,32 @@
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users warning"></i> 5 new members joined
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-cart success"></i> 25 sales made
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="ion ion-ios7-person danger"></i> You changed your username
-                                    </a>
-                                </li>
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="ion ion-ios7-people info"></i> 5 new members joined today-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="fa fa-users warning"></i> 5 new members joined-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!---->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="ion ion-ios7-cart success"></i> 25 sales made-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="#">-->
+<!--                                        <i class="ion ion-ios7-person danger"></i> You changed your username-->
+<!--                                    </a>-->
+<!--                                </li>-->
                             </ul>
                         </li>
                     </ul>
@@ -127,9 +127,9 @@
 <!--                        </li>-->
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
+<!--                            <div class="pull-left">-->
+<!--                                <a href="#" class="btn btn-default btn-flat">Profile</a>-->
+<!--                            </div>-->
                             <div class="pull-right">
                                 <a href="#" class="btn btn-default btn-flat">Sign out</a>
                             </div>
