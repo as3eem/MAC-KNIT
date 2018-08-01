@@ -61,13 +61,13 @@ class Welcome extends CI_Controller
         $phoneCheck = "select * from user where Contact = '".$data['phone']."'";
         $phoneCheck = $this->Macuser->_custom_query($phoneCheck);
         $s=$phoneCheck->result();
-        if ($q[0]->id >0){
+        if (!empty($q) && $q[0]->id >0){
             die("The Roll Number " . $q[0]->RollNo . " is already registered.");
         }
-        if ($r[0]->id >0){
+        if (!empty($r) && $r[0]->id >0){
             die("The Email Address " . $r[0]->Email . " is already registered. Try something new.");
         }
-        if ($s[0]->id >0){
+        if (!empty($s) && $s[0]->id >0){
             die("The Phone Number " . $s[0]->Contact . " is already registered. Try something new.");
         }
     }
@@ -130,5 +130,9 @@ class Welcome extends CI_Controller
         $this->Macuser->_insert($insert);
     }
 
+    public function logout(){
+        $this->session->sess_destroy();
+        $this->index();
+    }
 
 }
