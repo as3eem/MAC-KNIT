@@ -68,6 +68,18 @@ class Admin extends CI_Controller
         else redirect('Admin/');
     }
 
+    public function changeRequests(){
+        if ($this->_sessionCheck()){
+            $data=$this->_fetch_change_requests();
+            $data=$data->result();
+            $student['k']=$data;
+            $this->load->view('admin/adminNavbar');
+            $this->load->view('admin/MACrequest',$student);
+            $this->load->view('admin/footer');
+        }
+        else redirect('Admin/');
+    }
+
     public function action_on_request(){
         if ($this->_sessionCheck()) {
 
@@ -112,6 +124,14 @@ class Admin extends CI_Controller
         return $query;
     }
 
+    public function _fetch_change_requests(){
+
+        $this->load->model('Change_MAC');
+        $query = "select * from macRequest";
+        $query = $this->Change_MAC->_custom_query($query);
+        return $query;
+    }
+
     public function _add_MAC_to_user_db($mac,$roll){
 
         $this->load->model('Macuser');
@@ -153,7 +173,7 @@ class Admin extends CI_Controller
     }
 
     public function profile($data){
-        echo "amamam";
+        echo "Some Problem occured! Try again later";
         $this->load->view('admin/adminNavbar');
         $this->load->view('admin/profileAdminView',$data);
         $this->load->view('admin/footer');

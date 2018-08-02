@@ -193,8 +193,10 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?=base_url('Admin/macRequests')?>"><i class="fa fa-angle-double-right"></i>MAC Requests</a></li>
+                        <li><a href="<?=base_url('Admin/macRequests')?>"><i class="fa fa-angle-double-right"></i>New MAC Requests</a></li>
+                        <li><a href="<?=base_url('Admin/changeRequests')?>"><i class="fa fa-angle-double-right"></i>Change MAC Requests</a></li>
                     </ul>
+
                 </li>
             </ul>
         </section>

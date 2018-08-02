@@ -86,8 +86,28 @@ class Dashboard extends CI_Controller
         $new=$this->input->post('new',TRUE);
         $query=$this->_get_user_mac($old,$_SESSION['rollno']);
         $query=$query->result();
-        print_r($query);
+        if (!empty($query)){
 
+            $data['oldMac']=$old;
+            $data['newMac']=$new;
+            $data['Name']=$query[0]->Name;
+            $data['RollNo']=$query[0]->RollNo;
+            $data['post_image']=$query[0]->post_image;
+            $data['Course']=$query[0]->Course;
+            $data['Branch']=$query[0]->Branch;
+            $data['Year']=$query[0]->Year;
+            $data['Email']=$query[0]->Email;
+            $data['Contact']=$query[0]->Contact;
+            $data['isFaculty']=$query[0]->isFaculty;
+
+            $this->_insert_for_change_mac($data);
+            $this->_set_NULL($query[0]->Mac);
+            echo "<script>alert('Your request has been submitted.')</script>";
+            redirect(base_url());
+        }
+        else{
+            die("Information didn't match. Try again with correct details.");
+        }
 
     }
     public function _fetch_data_for_mac_request($post_image,$mac){
@@ -152,6 +172,20 @@ class Dashboard extends CI_Controller
         $this->load->model('MAC_Request');
         $query = "select * from user where RollNo = '" . $roll . "'";
         $query = $this->MAC_Request->_custom_query($query);
+        return $query;
+    }
+
+    public function _insert_for_change_mac($data)
+    {
+        $this->load->model('Change_MAC');
+        $this->Change_MAC->_insert($data);
+    }
+
+    public function _set_NULL($data)
+    {
+        $this->load->model('Macuser');
+        $query = "UPDATE user SET Mac = NULL ";
+        $query = $this->Macuser->_custom_query($query);
         return $query;
     }
 
