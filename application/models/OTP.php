@@ -13,7 +13,7 @@ class OTP extends CI_Model
     function sendOTP($otp, $number)
     {
 
-        $msg= 'You One Time Pass for KNIT CSE-DC registration is '.$otp.". Do not share this with anyone else. This OTP is valid for 3 minutes.";
+        $msg= 'Your OTP for KNIT CWN registration is '.$otp.". Do not share this with anyone else.";
         $number=urlencode($number);
         $curl = curl_init();
 

@@ -49,10 +49,8 @@ class Admin extends CI_Controller
             $this->load->view('admin/adminNavbar');
             $this->load->view('admin/profileAdminView',$data[0]);
             $this->load->view('admin/footer');
-
         }
         else redirect('Admin');
-
     }
 
     public function macRequests(){

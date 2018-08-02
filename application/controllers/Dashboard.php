@@ -81,6 +81,15 @@ class Dashboard extends CI_Controller
         }redirect(base_url());
     }
 
+    public function renewal(){
+        $old=$this->input->post('old',TRUE);
+        $new=$this->input->post('new',TRUE);
+        $query=$this->_get_user_mac($old,$_SESSION['rollno']);
+        $query=$query->result();
+        print_r($query);
+
+
+    }
     public function _fetch_data_for_mac_request($post_image,$mac){
         $data['post_image']=$post_image;
         $data['Name']=$_SESSION['name'];
@@ -112,6 +121,16 @@ class Dashboard extends CI_Controller
         $this->MAC_Request->_insert($data);
     }
 
+    public function profile(){
+        if ($this->_sessionCheck()){
+            $this->load->view('userTemp/userNavbar');
+            $this->load->view('userTemp/profileAdminView');
+            $this->load->view('userTemp/footer');
+        }
+        else{
+            redirect(base_url());
+        }
+    }
 
     function _get_user($roll)
     {
@@ -120,6 +139,14 @@ class Dashboard extends CI_Controller
         $query = $this->Macuser->_custom_query($query);
         return $query;
     }
+    function _get_user_mac($mac,$roll)
+    {
+        $this->load->model('Macuser');
+        $query = "select * from user where RollNo = '" . $roll . "' AND Mac = '".$mac."'";
+        $query = $this->Macuser->_custom_query($query);
+        return $query;
+    }
+
     function _get_user_request_table($roll)
     {
         $this->load->model('MAC_Request');

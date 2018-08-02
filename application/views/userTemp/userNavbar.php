@@ -105,7 +105,8 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <form action="<?=base_url('Dashboard/profile')?>" method="POST"> <button type="submit" class="btn btn-default btn-flat">Profile</button></form>
+
                             </div>
                             <div class="pull-right">
                                 <form action="<?=base_url('Welcome/logout')?>" method="POST"> <button type="submit" class="btn btn-default btn-flat">Sign out</button></form>

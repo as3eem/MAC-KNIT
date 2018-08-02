@@ -94,7 +94,7 @@ class Welcome extends CI_Controller
 
     public function _sendOTP($phone)
     {
-        $otp = rand(1000, 9999);
+        $otp = rand(10000, 99999);
         $this->session->set_userdata('otp', $otp);
         $this->load->model('OTP');
         $this->OTP->sendOTP($_SESSION['otp'],$phone);

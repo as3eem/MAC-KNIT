@@ -74,14 +74,14 @@
                     <div class="box-header">
                         <h3 class="box-title">MAC Address Change Request</h3>
                     </div><!-- /.box-header -->
-                    <form role="form">
+                    <form method="post" role="form" action="<?=base_url('Dashboard/renewal')?>">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Old MAC Address</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Your previous registerd MAC address">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="old" placeholder="Your previous registerd MAC address">
                             </div><div class="form-group">
                                 <label for="exampleInputEmail1">New MAC Address</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="New MAC address to register">
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="new" placeholder="New MAC address to register">
                             </div>
                         </div><!-- /.box-body -->
 
