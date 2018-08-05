@@ -28,7 +28,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3 col-lg-3 " align="center">
-                                <img alt="User Pic" height="300" width="300" src="<?=base_url('Static/IDs/').$id_image?>" class="img-circle img-responsive zoom">
+                                <img alt="User Pic" height="90" width="90" src="<?=base_url('Static/IDs/').$id_image?>" class="img-circle img-responsive zoom">
                             </div>
 
 

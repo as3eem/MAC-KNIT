@@ -42,7 +42,8 @@
                                 <th>Roll Number</th>
                                 <th>Name</th>
                                 <th>Date</th>
-                                <th>MAC Address</th>
+                                <th>Old MAC Address</th>
+                                <th>New MAC Address</th>
                                 <th>ID</th>
                                 <th>Action</th>
                             </tr>
@@ -51,11 +52,19 @@
 
                             <?php for($i=0;$i<sizeof($k);$i++): ?>
                                 <tr>
-                                    <form action="<?=base_url('Admin/action_on_request')?>" method="post">
-                                        <td><?= $k[$i]->RollNo ?></td><input type="hidden" value="<?= $k[$i]->RollNo?>" name="roll">
-                                        <td><?= $k[$i]->Name;?></td><input type="hidden" value="<?= $k[$i]->Name?>" name="name">
-                                        <td><?= $k[$i]->date;?></td><input type="hidden" value="" name="date">
-                                        <td><?= $k[$i]->Mac ?></td><input type="hidden" value="<?= $k[$i]->Mac?>" name="mac"><input type="hidden" value="<?= $k[$i]->Email?>" name="email">
+                                    <form action="<?=base_url('Admin/action_on_change_request')?>" method="post">
+                                        <td><?= $k[$i]->RollNo ?></td>
+                                            <input type="hidden" value="<?= $k[$i]->RollNo?>" name="roll">
+                                        <td><?= $k[$i]->Name;?></td>
+                                            <input type="hidden" value="<?= $k[$i]->Name?>" name="name">
+                                        <td><?= $k[$i]->date;?></td>
+                                            <input type="hidden" value="" name="date">
+                                        <td><?= $k[$i]->oldMac ?></td>
+                                            <input type="hidden" value="<?= $k[$i]->oldMac?>" name="oldmac">
+                                            <input type="hidden" value="<?= $k[$i]->Email?>" name="email">
+                                        <td><?= $k[$i]->newMac ?></td>
+                                            <input type="hidden" value="<?= $k[$i]->newMac?>" name="newmac">
+                                            <input type="hidden" value="<?= $k[$i]->Email?>" name="email">
                                         <td><img src="<?=base_url('Static/IDs/').$k[$i]->post_image?>" alt="<?=$k[$i]->post_image?>" class="zoom" name="<?=$k[$i]->post_image?>" height="34" width="42"></td>
                                         <td><button class="btn btn-success" name="approve" type="submit"> Approve </button>&nbsp&nbsp&nbsp<button class="btn btn-danger" name="deny" type="submit"> Deny </button></td>
                                     </form>
@@ -67,8 +76,9 @@
                                 <th>Roll Number</th>
                                 <th>Name</th>
                                 <th>Date</th>
-                                <th>MAC</th>
-                                <th>IDs</th>
+                                <th>Old MAC Address</th>
+                                <th>New MAC Address</th>
+                                <th>ID</th>
                                 <th>Action</th>
 
                             </tr>

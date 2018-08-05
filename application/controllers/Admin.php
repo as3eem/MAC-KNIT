@@ -45,10 +45,17 @@ class Admin extends CI_Controller
             $roll=$this->input->get('roll');
             $data=$this->_fetch_profile($roll);
             $data=$data->result();
-            $e['data']=$data[0];
-            $this->load->view('admin/adminNavbar');
-            $this->load->view('admin/profileAdminView',$data[0]);
-            $this->load->view('admin/footer');
+            if ($data[0]->id_image==null){
+                $data[0]->id_image='avatar.png';
+            }
+            if (sizeof($data)==0){
+                die("No Student registered with this roll number");
+            }
+            else{
+                $this->load->view('admin/adminNavbar');
+                $this->load->view('admin/profileAdminView',$data[0]);
+                $this->load->view('admin/footer');
+            }
         }
         else redirect('Admin');
     }
@@ -74,7 +81,7 @@ class Admin extends CI_Controller
             $data=$data->result();
             $student['k']=$data;
             $this->load->view('admin/adminNavbar');
-            $this->load->view('admin/MACrequest',$student);
+            $this->load->view('admin/changeMACrequest',$student);
             $this->load->view('admin/footer');
         }
         else redirect('Admin/');
@@ -106,6 +113,31 @@ class Admin extends CI_Controller
         else redirect('Admin');
     }
 
+    public function action_on_change_request(){
+        if ($this->_sessionCheck()) {
+
+            $email=$this->input->post('email');
+            $roll=$this->input->post('roll');
+            $oldMac=$this->input->post('oldmac');
+            $newMac=$this->input->post('newmac');
+            $img=$this->input->post('post_image');
+            $approve=$this->input->post('approve');
+            $deny=$this->input->post('deny');
+            if (isset($approve)){
+                $this->_add_MAC_to_user_db($newMac,$roll);
+                $this->_delete_mac_change_request($oldMac);
+
+//            todo: Send confirmation mail that request is accepted
+
+            }
+            elseif (isset($deny)){
+//            todo: send a mail of failure in acceptance
+                $this->_delete_mac_change_request($oldMac);
+            }
+            $this->macRequests();
+        }
+        else redirect('Admin');
+    }
 
     public function _delete_older_request(){
         $this->load->model('MAC_Request');
@@ -127,7 +159,7 @@ class Admin extends CI_Controller
     public function _fetch_change_requests(){
 
         $this->load->model('Change_MAC');
-        $query = "select * from macRequest";
+        $query = "select * from changeRequest";
         $query = $this->Change_MAC->_custom_query($query);
         return $query;
     }
@@ -162,6 +194,12 @@ class Admin extends CI_Controller
         $this->load->model('MAC_Request');
         $query = "DELETE FROM macRequest WHERE Mac='".$mac."'";
         $query = $this->MAC_Request->_custom_query($query);
+        return $query;
+    }
+    public function _delete_mac_change_request($oldmac){
+        $this->load->model('Change_MAC');
+        $query = "DELETE FROM changeRequest WHERE oldMac='".$oldmac."'";
+        $query = $this->Change_MAC->_custom_query($query);
         return $query;
     }
 
