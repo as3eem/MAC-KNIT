@@ -26,6 +26,7 @@ class Admin extends CI_Controller
         else $this->load->view('admin/adminLogin');
     }
 
+
     public function login(){
         if ($this->input->post('sub') == 'subMIT' && $this->input->post('pwd')=='12345'){
             $sessiondata=array(
@@ -58,6 +59,13 @@ class Admin extends CI_Controller
             }
         }
         else redirect('Admin');
+    }
+
+
+    public function searchPage(){
+        $this->load->view('admin/adminNavbar');
+        $this->load->view('admin/footer');
+
     }
 
     public function macRequests(){

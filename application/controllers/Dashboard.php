@@ -53,30 +53,32 @@ class Dashboard extends CI_Controller
             $sub = $this->input->post('done');
 
             if ($sub == "Submit") {
-                $config['upload_path'] = './Static/IDs/';
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size'] = '204800';
-                $config['max_width'] = '10240';
-                $config['max_height'] = '7680';
-
-                $this->load->library('upload', $config);
-                $this->upload->initialize($config);
-                $_FILES['user_file']['name'] = $_SESSION['rollno'].".png";
-                if ($this->upload->do_upload('user_file')) {
-                    $data = array('upload_data' => $this->upload->data('user_file'));
-                    $post_image = $_FILES['user_file']['name'];
-                    $studentBio=$this->_fetch_data_for_mac_request($post_image,$mac);
-                    $this->_insert($studentBio);
-
-//                  todo: send a mail in html template
-
-                    $this->user();
-                } else {
-                    $error = array('error' => $this->upload->display_errors());
-                    echo '<pre>';
-                    print_r($error);
-                    die();
-                }
+                $studentBio=$this->_fetch_data_for_mac_request($mac);
+                $this->_insert($studentBio);
+//                $config['upload_path'] = './Static/IDs/';
+//                $config['allowed_types'] = 'gif|jpg|png';
+//                $config['max_size'] = '204800';
+//                $config['max_width'] = '10240';
+//                $config['max_height'] = '7680';
+//
+//                $this->load->library('upload', $config);
+//                $this->upload->initialize($config);
+//                $_FILES['user_file']['name'] = $_SESSION['rollno'].".png";
+//                if ($this->upload->do_upload('user_file')) {
+//                    $data = array('upload_data' => $this->upload->data('user_file'));
+//                    $post_image = $_FILES['user_file']['name'];
+//                    $studentBio=$this->_fetch_data_for_mac_request($mac);
+//                    $this->_insert($studentBio);
+//
+////                  todo: send a mail in html template
+//
+//                    $this->user();
+//                } else {
+//                    $error = array('error' => $this->upload->display_errors());
+//                    echo '<pre>';
+//                    print_r($error);
+//                    die();
+//                }
             }
         }redirect(base_url());
     }
@@ -110,8 +112,8 @@ class Dashboard extends CI_Controller
         }
 
     }
-    public function _fetch_data_for_mac_request($post_image,$mac){
-        $data['post_image']=$post_image;
+    public function _fetch_data_for_mac_request($mac){
+        $data['post_image']=$_SESSION['id_image'];
         $data['Name']=$_SESSION['name'];
         $data['RollNo']=$_SESSION['rollno'];
         $data['Course']=$_SESSION['course'];
@@ -143,9 +145,20 @@ class Dashboard extends CI_Controller
 
     public function profile(){
         if ($this->_sessionCheck()){
-            $this->load->view('userTemp/userNavbar');
-            $this->load->view('userTemp/profileAdminView');
-            $this->load->view('userTemp/footer');
+            $data=$this->_get_user($_SESSION['rollno']);
+            $data=$data->result();
+            if ($data[0]->id_image==null){
+                $data[0]->id_image='avatar.png';
+            }
+            if (sizeof($data)==0){
+                die("No Student registered with this roll number");
+            }
+            else{
+                $this->load->view('userTemp/userNavbar');
+                $this->load->view('userTemp/profileAdminView',$data[0]);
+                $this->load->view('userTemp/footer');
+            }
+
         }
         else{
             redirect(base_url());

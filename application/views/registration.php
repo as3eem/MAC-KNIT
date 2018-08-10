@@ -47,7 +47,8 @@ Author URL: http://github.com/as3eem
                                         <h3>Register yourself here:</h3>
                                 </div>
                                 <div class="form-body form-body-info">
-                                    <form data-toggle="validator" action="<?=base_url('Welcome/Verify')?>" method="post">
+                                    <?php echo form_open_multipart('Welcome/Verify');?>
+<!--                                    <form data-toggle="validator" action="--><?//=base_url('Welcome/Verify')?><!--" method="post">-->
                                         <div class="form-group valid-form">
                                             <input type="text" class="form-control" id="inputName" name="name" placeholder="Full Name" required="">
                                         </div>
@@ -118,6 +119,14 @@ Author URL: http://github.com/as3eem
                                             <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" name="Confirm password" placeholder="Confirm password" required="">
                                             <div class="help-block with-errors"></div>
                                         </div>
+
+                                        <br><br>
+                                        <div class="form-group">
+                                            <input type="file" class="form-control" name="user_file" required="">
+                                            <span class="help-block">Upload your KNIT Identity Card that will be verified later.</span>
+                                        </div>
+
+
 
                                         <div class="form-group">
                                             <div class="checkbox">

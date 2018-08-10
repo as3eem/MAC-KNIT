@@ -48,14 +48,14 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="mac">Enter MAC Address</label>
-                                <input type="text" name="mac" class="form-control" required id="exampleInputEmail1" placeholder="for example: ec8eb5539f36">
+                                <input type="text" name="mac" class="form-control" required id="exampleInputEmail1" placeholder="For example: ec8eb5539f36">
                             </div>
 
-                            <div class="form-group">
-                                <label for="exampleInputFile">Upload Valid KNIT ID Card </label>
-                                <input type="file" id="exampleInputFile" required name="user_file">
-                                <p class="help-block">Upload current KNIT Identity Card that will be verified physically later with this account's identity. Valid formats are jpeg, jpg, png.</p>
-                            </div>
+<!--                            <div class="form-group">-->
+<!--                                <label for="exampleInputFile">Upload Valid KNIT ID Card </label>-->
+<!--                                <input type="file" id="exampleInputFile" required name="user_file">-->
+<!--                                <p class="help-block">Upload current KNIT Identity Card that will be verified physically later with this account's identity. Valid formats are jpeg, jpg, png.</p>-->
+<!--                            </div>-->
                         </div><!-- /.box-body -->
 
                         <div class="box-footer">

@@ -59,7 +59,11 @@
                                     </tr>
                                     <tr>
                                         <td>Email</td>
-                                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                                        <td><?=$Email?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>MAC</td>
+                                        <td><?=$Mac?></td>
                                     </tr>
                                     <td>Phone Number</td>
                                     <td><?=$Contact?> <br>
@@ -70,17 +74,10 @@
                                     </tbody>
                                 </table>
 
-                                <a href="#" class="btn btn-primary">My Sales Performance</a>
-                                <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                                <a href="#" class="btn btn-danger">Delete User</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="#" class="btn btn-primary">Delete User MAC</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-footer">
-                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                        </span>
                     </div>
 
                 </div>

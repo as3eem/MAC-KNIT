@@ -34,7 +34,33 @@ class Welcome extends CI_Controller
         $data['password'] = $this->input->post('password', TRUE);
         $data['submit'] = $this->input->post('submit', TRUE);
 
+//      uploading of id card
+        $config['upload_path'] = './Static/IDs/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size'] = '204800';
+        $config['max_width'] = '10240';
+        $config['max_height'] = '7680';
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        $_FILES['user_file']['name'] = $data['roll'].".png";
+        if ($this->upload->do_upload('user_file')) {
+            $data = array('upload_data' => $this->upload->data('user_file'));
+            $post_image = $_FILES['user_file']['name'];
+            $data['id_image']=$post_image;
+//                  todo: send a mail in html template
+
+            $this->user();
+        } else {
+            $error = array('error' => $this->upload->display_errors());
+            echo '<pre>';
+            print_r($error);
+            die();
+        }
+//      uploading finished
+
         $sessiondata = array(
+            'id_image'=>$data['post_image'],
             'name' => $data['name'],
             'rollNo' => $data['roll'],
             'isFaculty' => $data['isFaculty'],
@@ -117,6 +143,7 @@ class Welcome extends CI_Controller
         $insert['Course']=$_SESSION['course'];
         $insert['isFaculty']=$_SESSION['isFaculty'];
         $insert['password']=$_SESSION['password'];
+        $insert['id_image']=$_SESSION['id_image'];
 
         $this->_insert($insert);
         $this->session->sess_destroy();

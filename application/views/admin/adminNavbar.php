@@ -198,6 +198,11 @@
                     </ul>
 
                 </li>
+                <li>
+                    <a href="<?=base_url('Admin/SearchPage')?>">
+                        <i class="fa fa-search"></i> <span>Search</span>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
